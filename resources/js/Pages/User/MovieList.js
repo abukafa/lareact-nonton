@@ -39,7 +39,7 @@ export default function MovieList({ auth, movies }) {
                         <div className="font-semibold text-[22px] text-black mb-4">
                             {category}
                         </div>
-                        <div className="grid grid-cols-4 xl:grid-cols-8 gap-y-[30px]">
+                        <div className="grid grid-cols-4 xl:grid-cols-6 gap-y-[30px]">
                             {movies.map((movie) => (
                                 <MovieCard
                                     key={movie.id}
