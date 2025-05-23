@@ -22,10 +22,11 @@ Route::post('midtrans/notification', [SubscriptionPlanController::class, 'midtra
 
 Route::redirect('/', '/login');
 
-Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
+Route::middleware(['auth'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::get('categories', [DashboardController::class, 'movieList'])->name('movieList');
 
-    Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')->middleware('checkUserSubscription:true');
+    Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
 
     Route::get('subscription-plan', [SubscriptionPlanController::class, 'index'])->name('subscriptionPlan.index')->middleware('checkUserSubscription:false');
     Route::post('subscription-plan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscriptionPlan.userSubscribe')->middleware('checkUserSubscription:false');

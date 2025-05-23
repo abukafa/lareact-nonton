@@ -1,4 +1,18 @@
 {
-    "/js/app.js": "/js/app.js?id=94656bcc1fca7df52f7c02c3e481ad40",
-    "/css/app.css": "/css/app.css?id=80ea202e1b4a61ceb278f8e3af241942"
+    "/js/app.js": "/js/app.js",
+    "/js/reactPlayerYouTube.js": "/js/reactPlayerYouTube.js",
+    "/js/reactPlayerSoundCloud.js": "/js/reactPlayerSoundCloud.js",
+    "/js/reactPlayerVimeo.js": "/js/reactPlayerVimeo.js",
+    "/js/reactPlayerMux.js": "/js/reactPlayerMux.js",
+    "/js/reactPlayerFacebook.js": "/js/reactPlayerFacebook.js",
+    "/js/reactPlayerStreamable.js": "/js/reactPlayerStreamable.js",
+    "/js/reactPlayerWistia.js": "/js/reactPlayerWistia.js",
+    "/js/reactPlayerTwitch.js": "/js/reactPlayerTwitch.js",
+    "/js/reactPlayerDailyMotion.js": "/js/reactPlayerDailyMotion.js",
+    "/js/reactPlayerMixcloud.js": "/js/reactPlayerMixcloud.js",
+    "/js/reactPlayerVidyard.js": "/js/reactPlayerVidyard.js",
+    "/js/reactPlayerKaltura.js": "/js/reactPlayerKaltura.js",
+    "/js/reactPlayerFilePlayer.js": "/js/reactPlayerFilePlayer.js",
+    "/js/reactPlayerPreview.js": "/js/reactPlayerPreview.js",
+    "/css/app.css": "/css/app.css"
 }

@@ -34,21 +34,14 @@ export default function Login() {
                 <div className="fixed top-[-50px] hidden lg:block">
                     <img
                         src="/images/signup-image.png"
-                        className="hidden laptopLg:block laptopLg:max-w-[450px] laptopXl:max-w-[640px]"
+                        className="hidden laptopLg:block laptopLg:max-w-[450px]"
                         alt=""
                     />
                 </div>
-                <div className="py-24 flex laptopLg:ml-[680px] laptopXl:ml-[870px]">
+                <div className="py-10 flex laptopLg:ml-[680px]">
                     <div>
                         <img src="/images/moonton-white.svg" alt="" />
-                        <div className="my-[70px]">
-                            <div className="font-semibold text-[26px] mb-3">
-                                Welcome Back
-                            </div>
-                            <p className="text-base text-[#767676] leading-7">
-                                Explore our new movies and get <br />
-                                the better insight for your life
-                            </p>
+                        <div className="my-10">
                             <ValidationErrors errors={errors} />
                         </div>
                         <form className="w-[370px]" onSubmit={submit}>

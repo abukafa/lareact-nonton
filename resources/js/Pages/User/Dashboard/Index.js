@@ -25,7 +25,7 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
             </Head>
             <div>
                 <div className="font-semibold text-[22px] text-black mb-4">
-                    Featured Movies
+                    Recommendations
                 </div>
                 <Flickity className="gap-[30px]" options={flickityOptions}>
                     {featuredMovies.map((featuredMovie) => (
@@ -42,7 +42,7 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
             </div>
             <div className="mt-[50px]">
                 <div className="font-semibold text-[22px] text-black mb-4">
-                    Browse
+                    Browse Movies
                 </div>
                 <Flickity className="gap-[30px]" options={flickityOptions}>
                     {movies.map((movie) => (

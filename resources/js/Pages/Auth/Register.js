@@ -36,14 +36,14 @@ export default function Register() {
                 <div className="fixed top-[-50px] hidden lg:block">
                     <img
                         src="/images/signup-image.png"
-                        className="hidden laptopLg:block laptopLg:max-w-[450px] laptopXl:max-w-[640px]"
+                        className="hidden laptopLg:block laptopLg:max-w-[450px]"
                         alt=""
                     />
                 </div>
-                <div className="py-24 flex laptopLg:ml-[680px] laptopXl:ml-[870px]">
+                <div className="py-10 flex laptopLg:ml-[680px]">
                     <div>
                         <img src="/images/moonton-white.svg" alt="" />
-                        <div className="my-[70px]">
+                        <div className="my-10">
                             <div className="font-semibold text-[26px] mb-3">
                                 Sign Up
                             </div>
