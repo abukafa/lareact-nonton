@@ -1,16 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "@/Components/Input";
 import Label from "@/Components/Label";
 import Button from "@/Components/Button";
 import ValidationErrors from "@/Components/ValidationErrors";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
 
-export default function Login() {
+export default function Login({ movies }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
         remember: "",
     });
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        const thumbs = movies.map(movie => `/storage/${movie.thumbnail}`);
+        setImages(thumbs);
+    }, [movies]);
 
     useEffect(() => {
         return () => {
@@ -30,15 +37,26 @@ export default function Login() {
     return (
         <>
             <Head title="Sign Up" />
-            <div className="mx-auto max-w-screen min-h-screen bg-black text-white md:px-10 px-3">
-                <div className="fixed top-[-50px] hidden lg:block">
-                    <img
-                        src="/images/signup-image.png"
-                        className="hidden laptopLg:block laptopLg:max-w-[450px]"
-                        alt=""
-                    />
+            <div className="mx-auto max-w-screen min-h-screen bg-black text-white md:px-10 px-3 flex">
+                {/* Kolom gambar */}
+                <div className="hidden lg:block w-1/2 h-screen overflow-hidden px-4 py-8">
+                    <div className="columns-2 lg:columns-3 gap-2">
+                        {images.map((img, i) => (
+                            <img
+                                key={i}
+                                src={img}
+                                alt=""
+                                className={`rounded-lg w-full object-cover mb-2 ${i % 2 !== 0 || (i == 0 || i == 8) ? 'h-72' : 'h-36'}`}
+                                onError={(e) => {
+                                    e.target.src = "/images/thumb.jpg";
+                                }}
+                            />
+                        ))}
+                    </div>
                 </div>
-                <div className="py-10 flex laptopLg:ml-[680px]">
+
+                {/* Kolom form login */}
+                <div className="w-full lg:w-1/2 flex items-center justify-center py-10">
                     <div>
                         <img src="/images/moonton-white.svg" alt="" />
                         <div className="my-10">

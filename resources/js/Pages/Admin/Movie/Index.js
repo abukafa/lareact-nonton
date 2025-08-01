@@ -47,19 +47,15 @@ export default function Index({ auth, flashMessage, movies }) {
                             <td>{parseFloat(movie.rating).toFixed(1)}</td>
                             <td>
                                 <Checkbox
-                                    checked={movie.is_featured}
+                                    checked={movie.is_featured == 1} // pakai perbandingan longgar (==)
                                     handleChange={() => {
                                         Inertia.post(
-                                            route(
-                                                "admin.dashboard.movie.update",
-                                                movie.id
-                                            ),
+                                            route("admin.dashboard.movie.update", movie.id),
                                             {
                                                 _method: "PUT",
-                                                is_featured: !movie.is_featured ? 1 : 0,
+                                                is_featured: movie.is_featured == 1 ? 0 : 1,
                                             }
                                         );
-                                        console.log(movie.is_featured);
                                     }}
                                 />
                             </td>
