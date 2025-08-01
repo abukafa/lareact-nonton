@@ -2,6 +2,8 @@ import Authenticated from "@/Layouts/Authenticated/Index";
 import Button from "@/Components/Button";
 import FlashMessage from "@/Components/FlashMessage";
 import { Link, Head, useForm } from "@inertiajs/inertia-react";
+import Checkbox from "@/Components/Checkbox";
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({ auth, flashMessage, movies }) {
     const { delete: destroy, put } = useForm();
@@ -20,10 +22,11 @@ export default function Index({ auth, flashMessage, movies }) {
                 <thead>
                     <tr>
                         <th className="w-1/7">No</th>
-                        {/* <th className="w-1/6">Image</th> */}
+                        <th className="w-1/7">Image</th>
                         <th className="w-1/3">Name</th>
                         <th className="w-1/5">Category</th>
-                        <th className="w-1/5">Rating</th>
+                        <th className="w-1/7">Rating</th>
+                        <th className="w-1/7">Featured</th>
                         <th className="w-1/5" colSpan={2}>Action</th>
                     </tr>
                 </thead>
@@ -31,15 +34,35 @@ export default function Index({ auth, flashMessage, movies }) {
                     {movies.map((movie, i) => (
                         <tr key={movie.id}>
                             <td>{i + 1}</td>
-                            {/* <td>
+                            <td className="text-center overflow-hidden">
                                 <img
                                     src={`/storage/${movie.thumbnail}`}
-                                    className="w-32 rounded-md"
+                                    onError={(e) => { e.target.src = '/images/thumb.jpg' }}
+                                    className="object-cover object-center h-10 w-20 rounded-md"
+                                    alt=""
                                 />
-                            </td> */}
-                            <td className="text-left">{movie.name}</td>
+                            </td>
+                            <td className="text-left ps-4"> {movie.name}</td>
                             <td className="text-left">{movie.category}</td>
-                            <td>{movie.rating.toFixed(1)}</td>
+                            <td>{parseFloat(movie.rating).toFixed(1)}</td>
+                            <td>
+                                <Checkbox
+                                    checked={movie.is_featured}
+                                    handleChange={() => {
+                                        Inertia.post(
+                                            route(
+                                                "admin.dashboard.movie.update",
+                                                movie.id
+                                            ),
+                                            {
+                                                _method: "PUT",
+                                                is_featured: !movie.is_featured ? 1 : 0,
+                                            }
+                                        );
+                                        console.log(movie.is_featured);
+                                    }}
+                                />
+                            </td>
                             {!movie.deleted_at ? (
                                 <td>
                                     <Link
